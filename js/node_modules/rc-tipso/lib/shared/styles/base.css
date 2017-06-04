@@ -1,0 +1,37 @@
+:root {
+  /* ===== font size ===== */
+  --baseTextSizeM: 12px;
+  --baseTextSizeL: 14px;
+  --baseTextSizeXL: 16px;
+
+  /* ===== border ===== */
+  --radius-small: 2px;
+
+  /* ===== shadow ===== */
+  --shadowTipso: 2px 2px 8px 0 rgba(0, 0, 0, 0.1);
+
+  /* ===== zIndex ===== */
+  --zIndexHidden: -9;
+  --zIndex1: 1;
+  --zIndex99: 99;
+
+  /* ===== colors ===== */
+
+  --gray-dark-deep: #212529;
+  --tipso-triangle-back: rgba(212, 212, 212, 0.3);
+  --white: #FFFFFF;
+}
+
+.baseText {
+  font-size: var(--baseTextSizeL);
+}
+
+.baseSubText {
+  font-size: var(--baseTextSizeM);
+}
+
+@media (max-width: 800px) {
+  .baseText {
+    font-size: var(--baseTextSizeM);
+  }
+}

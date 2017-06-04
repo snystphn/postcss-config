@@ -1,0 +1,141 @@
+@import '../../shared/styles/base.css';
+
+:root {
+  --triangleWidth: 8px;
+  --triangleHeight: 5px;
+  --triangleOffset: 6px;
+}
+
+.tipso-wrapper {
+  position: relative;
+  display: inline-block;
+  composes: baseText;
+
+  &:first-child {
+    margin-left: 0 !important;
+  }
+
+  &:last-child {
+    margin-right: 0 !important;
+  }
+}
+
+.tipso-container {
+  background-color: var(--white);
+  border-radius: var(--radius-small);
+  box-shadow: var(--shadowTipso);
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  visibility: hidden;
+  line-height: 1em;
+  min-width: 100px;
+  font-size: 12px;
+  z-index: var(--zIndexHidden);
+  composes: baseSubText;
+
+  &.active {
+    visibility: visible;
+    z-index: var(--zIndex99);
+  }
+
+  &::before,
+  &::after {
+    width: 0;
+    height: 0;
+    left: 50%;
+    content: '';
+    display: block;
+    position: absolute;
+    transform: translateX(-50%);
+    border-left: var(--triangleWidth) solid transparent;
+    border-right: var(--triangleWidth) solid transparent;
+  }
+
+  &::after {
+    z-index: var(--zIndex1);
+  }
+
+  &::before {
+    z-index: var(--zIndexHidden);
+  }
+}
+
+.top {
+  bottom: 100%;
+  transform: translate(-50%, -var(--triangleOffset));
+
+  &::after {
+    bottom: -var(--triangleHeight);
+  }
+
+  &::before {
+    bottom: -var(--triangleOffset);
+  }
+
+  &.dark {
+    &::after {
+      border-top: var(--triangleHeight) solid var(--gray-dark-deep);
+    }
+
+    &::before {
+      border-top: var(--triangleHeight) solid transparent;
+    }
+  }
+
+  &.light {
+    &::after {
+      border-top: var(--triangleHeight) solid var(--white);
+    }
+
+    &::before {
+      border-top: var(--triangleHeight) solid var(--tipso-triangle-back);
+    }
+  }
+}
+
+.bottom {
+  top: 100%;
+  transform: translate(-50%, var(--triangleOffset));
+
+  &::after {
+    top: -var(--triangleHeight);
+  }
+
+  &::before {
+    top: -var(--triangleOffset);
+  }
+
+  &.dark {
+    &::after {
+      border-bottom: var(--triangleHeight) solid var(--gray-dark-deep);
+    }
+
+    &::before {
+      border-bottom: var(--triangleHeight) solid transparent;
+    }
+  }
+
+  &.light {
+    &::after {
+      border-bottom: var(--triangleHeight) solid var(--white);
+    }
+
+    &::before {
+      border-bottom: var(--triangleHeight) solid var(--tipso-triangle-back);
+    }
+  }
+}
+
+.dark {
+  color: var(--white);
+  background-color: var(--gray-dark-deep);
+}
+
+.light {
+  background-color: var(--white);
+}
